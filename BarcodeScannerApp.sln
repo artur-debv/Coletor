@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeScannerApp", "BarcodeScannerApp\BarcodeScannerApp.csproj", "{B71FB3C2-6255-440C-A5B2-54941A8A01B8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B71FB3C2-6255-440C-A5B2-54941A8A01B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B71FB3C2-6255-440C-A5B2-54941A8A01B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B71FB3C2-6255-440C-A5B2-54941A8A01B8}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B71FB3C2-6255-440C-A5B2-54941A8A01B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B71FB3C2-6255-440C-A5B2-54941A8A01B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B71FB3C2-6255-440C-A5B2-54941A8A01B8}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {65754F0B-677B-4D88-AA7F-78C5CCD1A21B}
+	EndGlobalSection
+EndGlobal
