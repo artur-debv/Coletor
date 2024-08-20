@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BarcodeScannerApp.Views"
+             x:Class="BarcodeScannerApp.Views.MainPage"
+             Title="Barcode Scanner">
+
+    <Grid Padding="25">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <Label Text="Lista de Códigos" 
+               FontSize="20" 
+               FontAttributes="Bold" 
+               HorizontalOptions="Center"
+               Grid.Row="0"
+               Margin="0,0,0,20"/>
+
+        <ScrollView Grid.Row="1">
+            <StackLayout>
+
+                <CollectionView ItemsSource="{Binding BarcodeItems}"
+                                Margin="0,0,0,20">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout Orientation="Horizontal" Padding="5">
+                                
+                                <Label Text="{Binding Code}" 
+                                       VerticalOptions="Center" 
+                                       WidthRequest="165"/>
+
+                                <Button Text="-" 
+                                        Margin="0,0,15,0" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPage}}, Path=BindingContext.DecreaseQuantityCommand}" 
+                                        CommandParameter="{Binding .}" />       
+
+                                <Label Text="{Binding Quantity}" 
+                                       VerticalOptions="Center"
+                                       WidthRequest="20"/>
+
+                                <Button Text="+" 
+                                        Margin="15,0,0,0" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type local:MainPage}}, Path=BindingContext.IncreaseQuantityCommand}" 
+                                        CommandParameter="{Binding .}" />
+                                
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
+
+        <Button Text="Novo Código"
+                HorizontalOptions="End" 
+                VerticalOptions="End"
+                Margin="0,20,0,0"
+                Grid.Row="2"
+                Clicked="OnAddBarcodeButtonClicked" />
+
+        <Grid x:Name="PopupOverlay"
+              BackgroundColor="#1f1f1f"
+              Opacity="0.9"
+              Grid.RowSpan="3"
+              IsVisible="False">
+        </Grid>
+
+        <Frame x:Name="PopupFrame"
+               BackgroundColor="#171717"
+               Padding="20"
+               CornerRadius="10"
+               IsVisible="False"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               Grid.RowSpan="3"
+               WidthRequest="300">
+
+            <VerticalStackLayout>
+                <Label Text="Código de Barras" FontSize="16" />
+                <Entry x:Name="BarcodeEntry" Placeholder="Código de Barras" Margin="0,0,0,20" />
+
+                <Label Text="Quantidade" FontSize="16" />
+                <Entry x:Name="QuantityEntry" Placeholder="Quantidade" Keyboard="Numeric" Margin="0,0,0,20"/>
+
+                <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                    <Button Text="Cancelar" Clicked="OnPopupCancelClicked" />
+                    <Button Text="Adicionar" Clicked="OnPopupOkClicked" />
+                </HorizontalStackLayout>
+            </VerticalStackLayout>
+        </Frame>
+
+    </Grid>
+</ContentPage>
